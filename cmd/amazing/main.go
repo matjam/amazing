@@ -15,7 +15,7 @@ const (
 
 func main() {
 	ebiten.SetWindowSize(sWidth, sHeight)
-	ebiten.SetWindowTitle("Hello, World!")
+	ebiten.SetWindowTitle("Amazing!")
 	ebiten.SetFullscreen(true)
 	ebiten.SetMaxTPS(60)
 	ebiten.SetVsyncEnabled(true)

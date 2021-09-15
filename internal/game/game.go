@@ -15,8 +15,9 @@ type Game struct {
 
 	board *life.Board
 
-	mouseDown bool
-	pause     bool
+	leftMouseDown  bool
+	rightMouseDown bool
+	pause          bool
 }
 
 func NewGame(width int, height int) *Game {
@@ -29,11 +30,19 @@ func NewGame(width int, height int) *Game {
 
 func (g *Game) Update() error {
 	if inpututil.IsMouseButtonJustPressed(ebiten.MouseButtonLeft) {
-		g.mouseDown = true
+		g.leftMouseDown = true
 	}
 
 	if inpututil.IsMouseButtonJustReleased(ebiten.MouseButtonLeft) {
-		g.mouseDown = false
+		g.leftMouseDown = false
+	}
+
+	if inpututil.IsMouseButtonJustPressed(ebiten.MouseButtonRight) {
+		g.rightMouseDown = true
+	}
+
+	if inpututil.IsMouseButtonJustReleased(ebiten.MouseButtonRight) {
+		g.rightMouseDown = false
 	}
 
 	if inpututil.IsKeyJustPressed(ebiten.KeyEscape) {
@@ -56,13 +65,14 @@ func (g *Game) Update() error {
 		g.board.Step()
 	}
 
-	if g.mouseDown {
+	if g.leftMouseDown {
 		x, y := ebiten.CursorPosition()
-		for yy := y - 2; yy < y+3; yy++ {
-			for xx := x - 2; xx < x+3; xx++ {
-				g.board.SetCell(xx, yy, life.CellTypeAlive)
-			}
-		}
+		g.board.SetCell(x, y, life.CellTypeAlive)
+	}
+
+	if g.rightMouseDown {
+		x, y := ebiten.CursorPosition()
+		g.board.SetCell(x, y, life.CellTypeDead)
 	}
 
 	return nil

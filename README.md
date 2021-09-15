@@ -18,9 +18,10 @@ pacman -S --needed base-devel mingw-w64-i686-toolchain mingw-w64-x86_64-toolchai
 
 ## Keyboard
 
-* **F1** - Randomize
-* **spacebar** - pause
-* **ESC** - quit
+* **F1** Randomize
+* **F2** Clear the screen
+* **SPACE** pause
+* **ESC** quit
 
 ## Mouse
 
