@@ -25,4 +25,4 @@ pacman -S --needed base-devel mingw-w64-i686-toolchain mingw-w64-x86_64-toolchai
 
 ## Mouse
 
-You can click around anywhere and add more live cells to the simulation.
+You can click around anywhere and add more live cells to the simulation. Right click will remove cells.
