@@ -44,6 +44,10 @@ func (g *Game) Update() error {
 		g.board.Seed(10) // 10%
 	}
 
+	if inpututil.IsKeyJustPressed(ebiten.KeyF2) {
+		g.board.Clear()
+	}
+
 	if inpututil.IsKeyJustPressed(ebiten.KeySpace) {
 		g.pause = !g.pause
 	}

@@ -28,6 +28,7 @@ func NewGrid(width int, height int, allowedCellTypes []CellType) *Grid {
 	return grid
 }
 
+// SetCell sets the CellType of the cell at the given location.
 func (g *Grid) SetCell(x int, y int, cellType CellType) {
 	if x >= g.Width || y >= g.Height || x < 0 || y < 0 {
 		log.Warn().
@@ -50,6 +51,7 @@ func (g *Grid) SetCell(x int, y int, cellType CellType) {
 	g.cells[y][x] = cellType
 }
 
+// GetCell will return the CellType of the given location.
 func (g *Grid) GetCell(x int, y int) CellType {
 	if x >= g.Width || y >= g.Height || x < 0 || y < 0 {
 		log.Warn().
@@ -59,4 +61,13 @@ func (g *Grid) GetCell(x int, y int) CellType {
 		return 0
 	}
 	return g.cells[y][x]
+}
+
+// Clear the entire grid - setting to whatever CellType 0 is.
+func (g *Grid) Clear() {
+	for y := 0; y < g.Height; y++ {
+		for x := 0; x < g.Width; x++ {
+			g.SetCell(x, y, 0)
+		}
+	}
 }
