@@ -2,7 +2,7 @@
 
 A game of life simulator written in Go, using ebiten.
 
-![image](https://user-images.githubusercontent.com/578676/133537452-2f710ff0-30a1-4326-a966-3010df254649.png)
+![Animation](https://user-images.githubusercontent.com/578676/133537968-7bd38b7e-8140-4148-a67c-a7462522727f.gif)
 
 ## Building
 
